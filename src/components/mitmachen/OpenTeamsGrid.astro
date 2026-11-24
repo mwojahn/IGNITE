@@ -21,7 +21,9 @@ const categoryLabel = getCopy(Astro.currentLocale).mitmachenPage.teamCategoryLab
       <Card as="li">
         <h3 slot="title">{team.team}</h3>
         <span slot="meta">{team.title}, {categoryLabel[team.category]}</span>
-        <p>{team.description}</p>
+        <div class="space-y-4">
+          {team.description.split(/\n\n+/).map((paragraph) => <p>{paragraph}</p>)}
+        </div>
       </Card>
     ))
   }
